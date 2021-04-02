@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiAvatar-root {
+    border: 4px solid #242526;
+}
+
+.MuiButton-root {
+  text-transform: none !important;
+  color: #B8BBBF !important;
+}
