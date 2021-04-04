@@ -13,10 +13,51 @@ code {
 }
 
 .MuiAvatar-root {
-    border: 4px solid #242526;
+    border: 4px solid #18191A;
 }
 
 .MuiButton-root {
   text-transform: none !important;
   color: #B8BBBF !important;
 }
+
+.MuiPaper-elevation1 {
+  box-shadow: unset !important;
+}
+
+.MuiTab-root {
+  text-transform: unset !important;
+  font-weight: 600 !important;
+}
+
+.MuiTab-textColorInherit {
+  color: #B8BBBF !important;
+}
+
+.MuiTab-textColorInherit.Mui-selected {
+  color: #2E89FF !important;
+}
+
+.PrivateTabIndicator-colorPrimary-8 {
+  background-color: #2E89FF !important;
+}
+
+
+
+.PrivateTabIndicator-root-4 {
+  height: 3px !important;
+}
+
+#tsparticles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+.MuiTabs-flexContainer {
+  justify-content: center;
+}
+
+
