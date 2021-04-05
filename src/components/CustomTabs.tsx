@@ -1,12 +1,11 @@
 import React from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-
 interface TabPanelProps {
   children?: React.ReactNode;
   index: any;
@@ -45,18 +44,16 @@ function a11yProps(index: any) {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: "#242526",
     position: "sticky",
     top: "0"
   },
 
   tabsContainer: {
     flexGrow: 1,
-    backgroundColor: "#18191A",
+    backgroundColor: "#242526",
     paddingLeft: "12vw",
     paddingRight: "12vw",
-    height: "100vw",
-    color: "#fff"
+    height: "100vw"
   },
 
   paperRoot: {
@@ -80,10 +77,9 @@ export default function SimpleTabs() {
   return (
     <>
     <div className={classes.root}>
-      <Paper square style={{ background: "#242526" }}>
+      <Paper square>
         <Tabs
-          indicatorColor="primary" 
-          textColor="inherit" value={value} 
+          indicatorColor="primary" value={value} 
           onChange={handleChange} 
           aria-label="tabs" 
           variant="scrollable"

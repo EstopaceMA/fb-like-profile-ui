@@ -12,14 +12,14 @@ code {
     monospace;
 }
 
-.MuiAvatar-root {
+/* .MuiAvatar-root {
     border: 4px solid #18191A;
-}
+} */
 
-.MuiButton-root {
+/* .MuiButton-root {
   text-transform: none !important;
   color: #B8BBBF !important;
-}
+} */
 
 .MuiPaper-elevation1 {
   box-shadow: unset !important;
@@ -30,7 +30,7 @@ code {
   font-weight: 600 !important;
 }
 
-.MuiTab-textColorInherit {
+/* .MuiTab-textColorInherit {
   color: #B8BBBF !important;
 }
 
@@ -40,7 +40,7 @@ code {
 
 .PrivateTabIndicator-colorPrimary-8 {
   background-color: #2E89FF !important;
-}
+} */
 
 
 

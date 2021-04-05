@@ -1,25 +1,36 @@
 import React, {Component} from 'react';
 import Particles from "react-tsparticles";
+import { connect } from 'react-redux';
 
-class CustomParticles extends Component {
-  constructor(props) {
+import { AppState } from '../store';
+import { SystemsState } from '../store/system/types';
+
+
+interface AppProps {
+  system: SystemsState;
+}
+class CustomParticles extends Component<AppProps> {
+  
+
+  constructor(props: any) {
     super(props);
 
     this.particlesInit = this.particlesInit.bind(this);
     this.particlesLoaded = this.particlesLoaded.bind(this);
   }
 
-  particlesInit(main) {
+  particlesInit(main: any) {
     console.log(main);
 
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
   }
 
-  particlesLoaded(container) {
+  particlesLoaded(container: any) {
     console.log(container);
   }
 
   render() {
+    const setColor = this.props.system.isDarkMode ? "#424242" : "#FFFFFF";
     return (
       <Particles
         id="tsparticles"
@@ -28,7 +39,7 @@ class CustomParticles extends Component {
         options={{
           fps_limit: 60,
           background: {
-            color: "#242526"
+            color: setColor
           },
           interactivity: {
             detect_on: "window",
@@ -101,4 +112,8 @@ class CustomParticles extends Component {
   }
 }
 
-export default CustomParticles;
+const mapStateToProps = (state: AppState) => ({
+  system: state.systems
+});
+
+export default connect(mapStateToProps)(CustomParticles);
