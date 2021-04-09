@@ -45,7 +45,7 @@ class CustomParticles extends Component<AppProps> {
             detect_on: "window",
             events: {
               onhover: {
-                enable: true,
+                enable: false,
                 mode: "bubble",
                 type: "rectangle"
               },
@@ -58,13 +58,13 @@ class CustomParticles extends Component<AppProps> {
                 opacity: 0.8,
                 size: 5,
                 speed: 3,
-                color: ["#ff0000", "#ff7700"]
+                color: ["#ffffff", "#ff7700"]
               }
             }
           },
           particles: {
             color: {
-              value: ["#ffffff", "#1254ef"]
+              value: ["#ff7700", "#1254ef", "#ffffff"]
             },
             links: {
               color: "random",
@@ -89,7 +89,7 @@ class CustomParticles extends Component<AppProps> {
               value: 0.5
             },
             shape: {
-              type: "square"
+              type: "polygon"
             },
             size: {
               animation: {

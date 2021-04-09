@@ -1,15 +1,17 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
+import Chip from '@material-ui/core/Chip';
+import FaceIcon from '@material-ui/icons/Face';
+import DoneIcon from '@material-ui/icons/Done';
 
-
-import profileCover from '../assets/profile-cover.jpg';
 import profile from '../assets/profile.jpg';
 
+const handleDelete = () => {
+
+};
 
 function ProfileCover() {
 
@@ -18,16 +20,7 @@ function ProfileCover() {
             paddingLeft: "10vw",
             paddingRight: "10vw"
             }}>
-            <Card style={{ visibility: "hidden" }}>
-              <CardActionArea>
-                <CardMedia 
-                  component="img"
-                  alt="Profile Cover"
-                  height="500"
-                  image={profileCover}
-                  title="Profile Cover"
-                />
-              </CardActionArea>
+            <Card style={{height: '35vw', backgroundColor: "rgb(66,66,66, 0)"}}>
             </Card>
               
             <Typography component="div" style={{ color: "white" }}>
@@ -36,7 +29,15 @@ function ProfileCover() {
                 Mark Anthony Estopace
               </Box>
               <Box textAlign="center" style={{ fontSize: 15 }}>
-                Software Engineer in the making
+                <Chip
+                  size="small"
+                  icon={<FaceIcon />}
+                  label="Fullstack Developer"
+                  clickable
+                  color="primary"
+                  onDelete={handleDelete}
+                  deleteIcon={<DoneIcon />}
+                />
               </Box>
             </Typography>
             <hr style={{ 

@@ -1,11 +1,15 @@
 import React from 'react';
-import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import { motion } from "framer-motion";
+
+import Footer from './common/Footer';
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: any;
@@ -25,7 +29,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Container>
-            <Box style={{ paddingTop: 15 }}>
+            <Box style={{ marginTop: 12 }}>
                 {children}
             </Box>
         </Container>
@@ -51,13 +55,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   tabsContainer: {
     flexGrow: 1,
     backgroundColor: "#242526",
-    paddingLeft: "12vw",
-    paddingRight: "12vw",
-    height: "100vw"
-  },
-
-  paperRoot: {
-    flexGrow: 1,
   },
 
   paper: {
@@ -82,58 +79,63 @@ export default function SimpleTabs() {
           indicatorColor="primary" value={value} 
           onChange={handleChange} 
           aria-label="tabs" 
-          variant="scrollable"
-          scrollButtons="auto"
+          // variant="scrollable"
+          // scrollButtons="auto"
         >
-          <Tab label="About" {...a11yProps(0)} />
-          <Tab label="Resume" {...a11yProps(1)} />
-          <Tab label="Portfolio" {...a11yProps(2)} />
-          <Tab label="Blogs" {...a11yProps(3)} />
-          <Tab label="Contact" {...a11yProps(4)} />
+          <Tab label="<About />" {...a11yProps(0)} />
+          <Tab label="<Projects />" {...a11yProps(1)} />
+          <Tab label="<Blogs />" {...a11yProps(2)} />
+          <Tab label="<Contact />" {...a11yProps(3)} />
         </Tabs>
       </Paper>
     </div>
     <div className={classes.tabsContainer}>
       <TabPanel value={value} index={0}>
-        <div className={classes.paperRoot}>
           <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>xs=12</Paper>
-            </Grid>
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>xs=6</Paper>
-            </Grid>
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>xs=6</Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper className={classes.paper}>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper className={classes.paper}>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper className={classes.paper}>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper className={classes.paper}>xs=3</Paper>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
+                <Paper  className={classes.paper}>
+                  I'm a graduate of Bachelor of Science in Information Technology, 
+                  I'm a kind of person that is always curious about the latest technology and innovation. 
+                </Paper>
+              </motion.div>
             </Grid>
           </Grid>
-        </div>
-        
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Resume
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
+                <Paper className={classes.paper}>
+                  PROJECTS
+                </Paper>
+              </motion.div>
+            </Grid>
+          </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Portfolio
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
+                <Paper className={classes.paper}>
+                  BLOGS
+                </Paper>
+              </motion.div>
+            </Grid>
+          </Grid>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Blogs
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
+                <Paper className={classes.paper}>
+                  CONTACT
+                </Paper>
+              </motion.div>
+            </Grid>
+          </Grid>
       </TabPanel>
-      <TabPanel value={value} index={4}>
-        Contact
-      </TabPanel>
+      <Footer></Footer>
     </div>
     </>
   );
