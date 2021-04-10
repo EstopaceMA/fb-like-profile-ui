@@ -1,42 +1,15 @@
-import React from 'react';
+import {useState, ChangeEvent} from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import { motion } from "framer-motion";
 
 import Footer from './common/Footer';
+import CustomTimeLine from './common/CustomTimeLine';
+import TabPanel from './common/TabPanel';
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: any;
-  value: any;
-}
-
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`scrollable-auto-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Container>
-            <Box style={{ marginTop: 12 }}>
-                {children}
-            </Box>
-        </Container>
-      )}
-    </div>
-  );
-}
 
 function a11yProps(index: any) {
   return {
@@ -63,11 +36,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export default function SimpleTabs() {
+const CustomTabs = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (event: ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
 
@@ -78,9 +51,7 @@ export default function SimpleTabs() {
         <Tabs
           indicatorColor="primary" value={value} 
           onChange={handleChange} 
-          aria-label="tabs" 
-          // variant="scrollable"
-          // scrollButtons="auto"
+          aria-label="tabs"
         >
           <Tab label="<About />" {...a11yProps(0)} />
           <Tab label="<Projects />" {...a11yProps(1)} />
@@ -92,13 +63,20 @@ export default function SimpleTabs() {
     <div className={classes.tabsContainer}>
       <TabPanel value={value} index={0}>
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12} sm={12} md={12} lg={8}>
               <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
-                <Paper  className={classes.paper}>
+                <Paper className={classes.paper}>
                   I'm a graduate of Bachelor of Science in Information Technology, 
-                  I'm a kind of person that is always curious about the latest technology and innovation. 
+                  a kind of person that is always curious about the latest technology and innovation. 
                 </Paper>
               </motion.div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={4}>
+              {/* <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}> */}
+                <Paper style={{ backgroundColor: "rgb(0,0,0,0)", padding: 0 }} className={classes.paper}>
+                  <CustomTimeLine/>
+                </Paper>
+              {/* </motion.div> */}
             </Grid>
           </Grid>
       </TabPanel>
@@ -115,7 +93,28 @@ export default function SimpleTabs() {
       </TabPanel>
       <TabPanel value={value} index={2}>
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12} sm={12} md={4} lg={3}>
+              <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
+                <Paper className={classes.paper}>
+                  BLOGS
+                </Paper>
+              </motion.div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={4} lg={3}>
+              <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
+                <Paper className={classes.paper}>
+                  BLOGS
+                </Paper>
+              </motion.div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={4} lg={3}>
+              <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
+                <Paper className={classes.paper}>
+                  BLOGS
+                </Paper>
+              </motion.div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={4} lg={3}>
               <motion.div initial={{ scale: .8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
                 <Paper className={classes.paper}>
                   BLOGS
@@ -140,3 +139,5 @@ export default function SimpleTabs() {
     </>
   );
 }
+
+export default CustomTabs;

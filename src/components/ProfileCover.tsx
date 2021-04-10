@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
@@ -9,11 +8,7 @@ import DoneIcon from '@material-ui/icons/Done';
 
 import profile from '../assets/profile.jpg';
 
-const handleDelete = () => {
-
-};
-
-function ProfileCover() {
+const ProfileCover = () => {
 
     return (
         <div style={{  
@@ -35,7 +30,7 @@ function ProfileCover() {
                   label="Fullstack Developer"
                   clickable
                   color="primary"
-                  onDelete={handleDelete}
+                  onDelete={() => {}}
                   deleteIcon={<DoneIcon />}
                 />
               </Box>

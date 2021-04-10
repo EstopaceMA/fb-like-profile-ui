@@ -1,6 +1,5 @@
 import { createStore, combineReducers } from 'redux';
 
-
 import systemsReducer from './system/reducers';
 
 const rootReducer = combineReducers({

@@ -20,13 +20,13 @@ class CustomParticles extends Component<AppProps> {
   }
 
   particlesInit(main: any) {
-    console.log(main);
+    // console.log(main);
 
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
   }
 
   particlesLoaded(container: any) {
-    console.log(container);
+    // console.log(container);
   }
 
   render() {

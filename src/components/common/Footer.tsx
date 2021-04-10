@@ -1,6 +1,6 @@
 import Paper from '@material-ui/core/Paper';
 
-function Footer() {
+const Footer = () => {
     return (
         <div style={{ 
             marginTop: 12,
