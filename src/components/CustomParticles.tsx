@@ -1,45 +1,34 @@
-import React, {Component} from 'react';
+import { FC } from 'react';
 import Particles from "react-tsparticles";
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { AppState } from '../store';
 import { SystemsState } from '../store/system/types';
 
 
+
+interface Props{
+
+}
 interface AppProps {
   system: SystemsState;
 }
-class CustomParticles extends Component<AppProps> {
-  
 
-  constructor(props: any) {
-    super(props);
+const CustomParticles: FC<Props> = () => {
 
-    this.particlesInit = this.particlesInit.bind(this);
-    this.particlesLoaded = this.particlesLoaded.bind(this);
-  }
+  const { system } = useSelector<AppState, AppProps>((state: AppState) => {
+      return {
+        system: state.systems
+      }
+  });
 
-  particlesInit(main: any) {
-    // console.log(main);
-
-    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-  }
-
-  particlesLoaded(container: any) {
-    // console.log(container);
-  }
-
-  render() {
-    const setColor = this.props.system.isDarkMode ? "#424242" : "#FFFFFF";
-    return (
-      <Particles
+  return (
+    <Particles
         id="tsparticles"
-        init={this.particlesInit}
-        loaded={this.particlesLoaded}
         options={{
           fps_limit: 60,
           background: {
-            color: setColor
+            color: system.isDarkMode ? "#424242" : "#FFFFFF"
           },
           interactivity: {
             detect_on: "window",
@@ -108,12 +97,7 @@ class CustomParticles extends Component<AppProps> {
           retina_detect: true
         }}
       />
-    );
-  }
+  );
 }
 
-const mapStateToProps = (state: AppState) => ({
-  system: state.systems
-});
-
-export default connect(mapStateToProps)(CustomParticles);
+export default CustomParticles;
